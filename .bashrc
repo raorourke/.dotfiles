@@ -16,6 +16,6 @@ export GITHUB
 
 # User specific aliases and functions
 
-. ~/.myfunctions
-. ~/.myaliases
+. ~/.bash_functions
+. ~/.bash_aliases
 . ~/.app-env 
