@@ -15,6 +15,7 @@ alias backup="sudo rsync -aAXv / --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*"
 alias cp="cp -r"
 alias rm="rm -rf"
 alias i3-config="vim ~/.config/i3/config"
+alias charm="/home/ryan/.local/share/JetBrains/Toolbox/apps/PyCharm-C/ch-0/201.7846.77/bin/pycharm.sh &"
 
 # todo.txt aliases
 alias todo='todo.sh'
@@ -33,3 +34,4 @@ eval "$(thefuck --alias)"
 
 # use for managing dotfiles bare git repo
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
+alias rhxtmdev="python3 -m docbooktoxtm"

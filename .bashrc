@@ -19,3 +19,5 @@ export GITHUB
 . ~/.bash_functions
 . ~/.bash_aliases
 . ~/.app-env 
+
+source /home/ryan/.bash_completions/typer.sh
