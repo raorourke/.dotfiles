@@ -1,0 +1,5 @@
+[repositories]
+[repositories.pypi]
+
+[repositories.private-pypi]
+url = "http://10.100.1.89:8081/"

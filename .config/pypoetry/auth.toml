@@ -1,0 +1,7 @@
+[http-basic]
+[http-basic.pypi]
+username = "ryan"
+
+[http-basic.private-pypi]
+username = "welo"
+
