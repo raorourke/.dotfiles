@@ -12,8 +12,8 @@
 set $mod Mod4
 # set $mod Mod1
 
-set $left "HDMI-1" 
-set $right "DP-3"
+set $right "HDMI-1" 
+set $left "DP-3"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -170,18 +170,19 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # workspace output assignments
 workspace 1 output primary
-workspace 2 output $left $right
+workspace 2 output $left 
 workspace 3 output $right
 workspace 4 output primary
-workspace 5 output $left $right
+workspace 5 output $left
 workspace 6 output $right
 workspace 7 output primary
-workspace 8 output $left $right
+workspace 8 output $left
 workspace 9 output $left
 workspace 0 output $left
 
 # window assignments
 assign [class="jetbrains-pycharm-ce"] 2
+assign [class="microsoft teams - preview"] 1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -240,7 +241,7 @@ bindsym $mod+r mode "resize"
 # }
 
 bar {
-	status_command i3status
+	status_command py3status -c ~/.config/i3status/config
 # 	mode hide
 #	position top
 #	output primary
@@ -265,6 +266,8 @@ exec_always --no-startup-id xinput --set-prop "$( xinput --list | grep -i touchp
 # automatically open terminal window
 # exec --no-startup-id urxvt
 
+exec --no-startup-id "/home/$USER/.local/bin/screens.sh"
+
 # wallpaper and display config
 bindsym $mod+Shift+m exec --no-startup-id screens.sh
 bindsym $mod+Ctrl+m exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --output HDMI-1 --mode 1600x900 --right-of eDP-1 
@@ -277,3 +280,8 @@ exec --no-startup-id conky -c "/home/$USER/.conkyrc"
 bindsym $mod+g exec --no-startup-id google-chrome --new-window "https://www.google.com"
 bindsym $mod+p exec --no-startup-id pycharm
 bindsym $mod+c exec zenity --calendar
+
+exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/$USER/.i3/workspace-3.json'"
+exec --no-startup-id blueman-manager
+exec --no-startup-id pavucontrol
+exec --no-startup-id urxvt

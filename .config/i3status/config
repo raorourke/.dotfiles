@@ -6,9 +6,10 @@ general {
         interval = 5
 }
 
-order += "read_file BRIGHTNESS"
+# order += "read_file BRIGHTNESS"
 order += "volume master"
 order += "cpu_usage"
+order += "lm_sensors"
 order += "memory"
 # order += "disk /"
 order += "wireless _first_"
@@ -73,4 +74,20 @@ memory {
 
 disk "/" {
         format = "HDD %percentage_used"
+}
+
+lm_sensors {
+	chips = ["coretemp-isa-0000"]
+	sensors = ["package_id_0"]
+	format = "{format_chip}"
+	format_chip = "{format_sensor}"
+	format_sensor = '[\?color=input {input}°C]'
+	thresholds = [
+	(0, "#5f00ff"),
+	(20, "#00afff"),
+	(40, "#d75f00"),
+	(60, "#ff5f00"),
+	(85, "#ff0000"),
+	]
+	gradients = True
 }
